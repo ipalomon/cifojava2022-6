@@ -11,6 +11,9 @@ import java.util.Set;
 @Getter @Setter @ToString @NoArgsConstructor @AllArgsConstructor
 @Entity(name="BOOK")
 @Table(name="BOOK_TABLE")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="BOOK_TYPE",
+        discriminatorType = DiscriminatorType.STRING)
 public class Book {
 
     @Id

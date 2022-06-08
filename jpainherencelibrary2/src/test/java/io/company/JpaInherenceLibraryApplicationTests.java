@@ -43,7 +43,12 @@ class JpaInherenceLibraryApplicationTests {
 		Book rareBook2 = new RareBook();
 		bookRepository.save(rareBook2);
 
+		//let s save an AUTHOR object
+		//AUTHOR1
 		Author author1 = new Author();
+		authorRepository.save(author1);
+		//let s join BOOK and AUTHOR
+		author1.getBooks().add(book1);
 		authorRepository.save(author1);
 
 		//let s save an AUTHOR object
@@ -55,43 +60,6 @@ class JpaInherenceLibraryApplicationTests {
 		author2.getBooks().add(itemBook2);
 		authorRepository.save(author2);
 
-		Author author3 = new Author();
-		authorRepository.save(author3);
-		//let s join a BOOK and AUTHOR
-		author3.getBooks().add(itemBook1);
-		//authorRepository.save(author3);
-		//let s join another book
-		author3.getBooks().add(itemBook2);
-		authorRepository.save(author3);
-		
-
-
-	}
-
-	@Test
-	void joinObjects(){
-		Book book1 = new Book();
-		ItemBook itemBook1 = new ItemBook();
-		RareBook rareBook1 = new RareBook();
-		Book itemBook2 = new ItemBook();
-
-		//let s save an AUTHOR object
-		//AUTHOR1
-		//Author author1 = new Author();
-		//authorRepository.save(author1);
-		//let s join BOOK and AUTHOR
-		//author1.getBooks().add(book1);
-		//authorRepository.save(author1);
-
-		//let s save an AUTHOR object
-		//AUTHOR2
-		//Author author2 = new Author();
-		//authorRepository.save(author2);
-		//let s join 2 BOOK and AUTHOR
-		//author2.getBooks().add(itemBook1);
-		//author2.getBooks().add(itemBook2);
-		//authorRepository.save(author2);
-
 		//let s save an AUTHOR object
 		//AUTHOR3
 		Author author3 = new Author();
@@ -100,8 +68,10 @@ class JpaInherenceLibraryApplicationTests {
 		author3.getBooks().add(itemBook1);
 		authorRepository.save(author3);
 		//let s join another book
-		author3.getBooks().add(itemBook2);
-		authorRepository.save(author3);
+		//author3.getBooks().add(itemBook2);
+		//authorRepository.save(author3);
+
+
 	}
 
 }

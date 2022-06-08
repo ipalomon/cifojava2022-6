@@ -9,9 +9,8 @@ import java.util.Set;
 
 
 @Getter @Setter @ToString @NoArgsConstructor @AllArgsConstructor
-@Entity(name="BOOK")
-@Table(name="BOOK_TABLE")
-public class Book {
+@MappedSuperclass
+public abstract class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,9 +25,9 @@ public class Book {
     @Column(name="ISBN")
     private String isbn;
 
-    @ManyToMany(mappedBy = "books", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    private Set<Author> authors = new HashSet<Author>();
+//    @ManyToMany(mappedBy = "books", cascade = CascadeType.ALL,
+//            fetch = FetchType.EAGER)
+//    private Set<Author> authors = new HashSet<Author>();
 
     //constructor without ID
     public Book(String title, int pages, int publishedYear, String isbn) {

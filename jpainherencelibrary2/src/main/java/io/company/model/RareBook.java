@@ -2,12 +2,14 @@ package io.company.model;
 
 import lombok.*;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
 @Getter @Setter @ToString
 @Entity(name="RareBook")
-@Table(name="RARE_BOOK_TABLE")
+@DiscriminatorValue(value= "REREBOOK")
 public class RareBook extends Book{
 
     @Column(name="HAND_MADE")
